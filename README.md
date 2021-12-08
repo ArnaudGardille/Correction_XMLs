@@ -3,11 +3,19 @@
 This repository makes use python. 
 We recommand you to use the Anaconda distribution.
 
+We run the files through the terminal.
+First place youtself if the right folder:
+```
+cd .../Correction_XMLs 
+```
+
 Start by installing the requirements:
 ```
 pip3 install -r requirements
 ```
-Then install your pdf inside the folder 'anciens_fichiers_pdf', and run 
+Then install your pdf inside the folder 'anciens_fichiers_pdf'.
+You can create it if it does not already exist.
+Then run:
 
 ```
 python3 correction_XML.py
