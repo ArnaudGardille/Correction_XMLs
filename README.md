@@ -8,10 +8,19 @@ First place youtself if the right folder:
 ```
 cd .../Correction_XMLs 
 ```
+(optional) Create a virtual environment  
+```
+conda create Correction_XMLs
+```
+
+```
+conda activate Correction_XMLs 
+```
+
 
 Start by installing the requirements:
 ```
-pip3 install -r requirements
+pip3 install -r requirements.txt
 ```
 Then install your pdf inside the folder 'anciens_fichiers_pdf'.
 You can create it if it does not already exist.
