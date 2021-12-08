@@ -34,4 +34,7 @@ And get your corrected files in 'nouveaux_fichiers_pdf'
 
 Enjoy!
 
+Explanation video (in french)
+https://youtu.be/PD4aVITMaIA
+
 nb: If any of thoses command does't work, replace 'pip3' by 'pip' and 'python3' by 'python'.
