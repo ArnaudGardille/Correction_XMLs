@@ -10,7 +10,7 @@ cd .../Correction_XMLs
 ```
 (optional) Create a virtual environment  
 ```
-conda create Correction_XMLs
+conda create -n Correction_XMLs
 ```
 
 ```
@@ -27,7 +27,7 @@ You can create it if it does not already exist.
 Then run:
 
 ```
-python3 correction_XML.py
+python3 CorrecFatcureX.py
 ```
 And get your corrected files in 'nouveaux_fichiers_pdf' 
 
