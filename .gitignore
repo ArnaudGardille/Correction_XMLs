@@ -10,6 +10,8 @@ __pycache__/
 .Python
 build/
 develop-eggs/
+anciens_fichiers_pdf/
+nouveaux_fichiers_pdf/
 dist/
 downloads/
 eggs/
@@ -24,6 +26,9 @@ pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
+*.xml
+*.zip
+*.pdf
 *.egg
 MANIFEST
 

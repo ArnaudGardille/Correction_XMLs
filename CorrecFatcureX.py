@@ -1,15 +1,42 @@
+from pathlib import Path
 
 from facturx import *
 import pathlib
 import os
 from os.path import isfile, join
 
+import PyPDF4
+
 current_directory = str(pathlib.Path(__file__).parent.resolve())
 rep = current_directory + '/anciens_fichiers_pdf/'
 
+def extract_xml(reader):
+    """
+    Retrieves the file attachments of the PDF as a dictionary of file names
+    and the file data as a bytestring.
+    :return: dictionary of filenames and bytestrings
+    """
+
+    handler = open('/home/agardille/Correction_XMLs/FCLI009060_N° 64603.pdf', 'rb')
+    reader = PyPDF4.PdfFileReader(handler)
+
+    catalog = reader.trailer["/Root"]
+    fileNames = catalog['/Names']['/EmbeddedFiles']['/Names']
+    attachments = {}
+    for f in fileNames:
+        if isinstance(f, str):
+            name = f
+            dataIndex = fileNames.index(f) + 1
+            fDict = fileNames[dataIndex].getObject()
+            fData = fDict['/EF']['/F'].getData()
+            attachments[name] = fData
+
+    for fName, fData in attachments.items():
+        with open('exctracted.xml', 'wb') as outfile:
+            outfile.write(fData)
 
 
-def extractXML(pdf_filename, out_xml_filename='exctracted.xml', disable_xsd_check=False):
+def extractXML_old(pdf_filename, out_xml_filename='exctracted.xml', disable_xsd_check=True):
 
     if not isfile(pdf_filename):
         raise Exception('Argument %s is not a filename', pdf_filename)
@@ -121,10 +148,16 @@ for fichier in fichiers:
     if fichier[-3:] != "pdf":
         continue
     path = current_directory + '/anciens_fichiers_pdf/' + fichier
-    extractXML(path)
+    extract_xml(path)
+    #extractXML(path)
     checkXML('exctracted.xml')
     correctXML('exctracted.xml')
     path_new_pdf = current_directory + '/nouveaux_fichiers_pdf/' + fichier 
 
     createPDF(path, 'corrected.xml', path_new_pdf)
+
+    os.remove("exctracted.xml") 
+    os.remove("corrected.xml") 
+
+
 
