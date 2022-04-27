@@ -20,7 +20,6 @@ conda activate Correction_XMLs
 
 Start by installing the requirements:
 ```
-conda install pathlib
 pip3 install factur-x
 ```
 Then install your pdf inside the folder 'anciens_fichiers_pdf'.
